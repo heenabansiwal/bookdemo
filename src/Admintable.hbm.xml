@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ 
+ 	<hibernate-mapping>
+	
+	
+	<class name="bookpojo.Admintablepojo" table="Admintable">
+   		<id name="adminid" type="int" >
+   		<column name="adminid"/>
+		<generator class="identity"></generator>
+   	</id>
+   	
+   	<property name="adminname"  type="string">
+   	<column name="adminname" length="30"></column>
+    </property>
+    
+   	<property name="adminaddress" type="string">
+   	<column name="adminaddress" length="30"></column>
+   	</property>
+   	
+   	<property name="adminpassword"  type="string">
+   	<column name="adminpassword" length="30"></column>
+   	</property>
+   	<property name="adminphhono" type="long">
+   	<column name="adminphhono" length="30"></column>
+   	</property>
+   	<property name="admineamil" type="string">
+   	<column name="admineamil" length="30"></column>
+   	</property>
+   	<property name="adminpost"  type="string">
+   	<column name="adminpost" length="30"></column>
+   	</property>
+   	
+   
+   	</class> 
+</hibernate-mapping>

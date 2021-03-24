@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE validators PUBLIC
+  		"-//Apache Struts//XWork Validator 1.0.3//EN"
+  		"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+  		
+  		<validators>
+  		
+  		
+  		
+  		<validator type="required">
+  		<param name="fieldname">orderno</param>
+  		<message>OrderNo Is Required</message>
+  		
+  		</validator>
+  		
+  		<validator type="requiredstring">
+  		<param name="fieldname">bookisbn</param>
+  		<message>BookIsbn Is Required</message>
+  		</validator>
+  		
+  		<validator type="requiredstring">
+  		<param name="fieldname">status</param>
+  		<message>Status Is Required</message>
+  		</validator>
+  		
+  		
+  		
+</validators>

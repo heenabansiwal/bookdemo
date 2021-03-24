@@ -1,0 +1,385 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+    
+    <struts>
+    
+    <package name="pack" extends="struts-default">
+<!-- Admin mapping start  -->    
+    <action name="adminactionform" method="insertData2" class="bookaction.Admintableaction">
+    <result name="insert">Adminsuccess.jsp</result> 
+    </action>
+    
+    
+        <action name="viewadminreportAction" method="viewAdminData" class="bookaction.Admintableaction">
+    <result name="viewAdminData">reportAdmin.jsp</result>
+    </action>
+    
+    <action name="adminLoginAction" method="adminLogin" class="bookaction.Admintableaction">
+<result name="adminloginsucess">AdminHome.jsp</result>
+<result name="adminloginfail">Adminlogin.jsp</result>
+<result name="error">error.jsp</result>
+    </action>
+    
+    <action name="adminlogoutAction" method="adminlogout" class="bookaction.Admintableaction">
+<result name="adminlogout">Adminlogin.jsp</result>
+    </action>	
+    
+    
+    <!--  Admin mapping ends-->
+    
+    <action name="Bookbuysellactionform" method="insertbookbuysell" class="bookaction.Bookbuysellaction">
+    <result name="insert">success.jsp</result>
+    <result name="input">Bookbuysell.jsp</result>
+    </action>
+    
+    <action name="viewbookbuysellreportAction" method="viewBookBuySellData" class="bookaction.Bookbuysellaction">
+    <result name="viewBookbuysellData">reportBookbuysell.jsp</result>
+    </action>
+    
+    
+    <action name="bookbuyactionform" method="insertbookbuy2" class="bookaction.BookBuytableaction">
+    <result name="insert">confirmorder.jsp</result>
+     </action>
+    
+        <action name="viewbookbuyreportAction" method="viewBookBuyData" class="bookaction.BookBuytableaction">
+    <result name="viewBookbuyData">reportBookbuy.jsp</result>
+    </action>
+    
+<action name="booktableactionform" method="insertbookdata2" class="bookaction.Booktableaction">
+<result name="insert">success.jsp</result>
+<result name="input">Booktable.jsp</result>
+</action> 
+
+
+ <action name="viewbookreportAction" method="viewBookData" class="bookaction.Booktableaction">
+    <result name="viewBookData">reportBooktable.jsp</result>
+    </action>
+
+
+ <action name="viewAllbookaction" method="viewAllBookData" class="bookaction.Booktableaction">
+    <result name="viewAllBookSuccess">viewAllbook.jsp</result>
+    </action>
+<!--       ............add to cart action................  -->
+
+    <action name="addtocartaction" method="AddtoCart" class="bookaction.Booktableaction">
+   <result name="dataAddedSuccess" type="chain">viewAllbookaction</result>
+    </action>
+    
+    <action name="viewalldatacart" method="ViewCart" class="bookaction.Booktableaction">
+   <result name="ViewAllcartSuccess">viewCart.jsp</result>
+    </action>
+   
+   <action name="deletefromcartaction" method="deleteCart" class="bookaction.Booktableaction">
+   <result name="dataDeletedSuccessfully" type="chain">viewalldatacart</result>
+    </action>
+    <!-- .................end add to cart action........................ -->
+    
+    
+    <!-- customer mapping start -->
+    <action name="customeractionform" method="insertcustomerdata2" class="bookaction.Customertableaction">
+<result name="insert">AfterloginFile.jsp</result>
+<result name="input">Customertable.jsp</result>    
+    </action>
+    
+     <action name="viewCustomerreportAction" method="viewCustomerData" class="bookaction.Customertableaction">
+<result name="viewCustomerData">reportCustomer.jsp</result>
+    </action>
+    
+<action name="customerLoginAction" method="userLogin" class="bookaction.Customertableaction">
+<result name="custloginsucess">Homepage.jsp</result>
+<result name="custloginfail">Customerlogin.jsp</result>
+<result name="error">error.jsp</result>
+    </action>
+    
+    
+    <action name="userlogoutAction" method="userlogout" class="bookaction.Customertableaction">
+<result name="userlogout">Customerlogin.jsp</result>
+    </action>	
+    
+    
+    
+<!-- customer mapping ends -->
+
+<action name="feedbackactionform" method="insertfeedbackdata2" class="bookaction.Feedbacktableaction">
+<result name="insert">Feedsuccess.jsp</result>
+<result name="input">Feedbacktable.jsp</result>
+</action>
+
+<action name="viewFeedbackreportAction" method="viewFeedbackData" class="bookaction.Feedbacktableaction">
+<result name="viewFeedbackData">reportFeedback.jsp</result>
+</action>
+
+<action name="paymentactionform" method="insertpaymentdata2" class="bookaction.Paymenttableaction">
+ <result name="insert" type="chain">bookbuyactionform</result>
+<!-- <result name="insert">success.jsp</result> -->
+ <!--   <result name="input">Paymenttable.jsp</result> --> 
+</action>
+
+<action name="viewPaymentreportAction" method="viewPaymentData" class="bookaction.Paymenttableaction">
+<result name="viewPaymentData">reportPayment.jsp</result>
+</action>
+
+
+<action name="rentbookingform" method="insertrentbookingdata2" class="bookaction.Rentbookingtableaction">
+<result name="insert">success.jsp</result>
+<result name="input">Rentbookingtable.jsp</result>
+    </action>
+    
+    <action name="viewRentbookingreportAction" method="viewRentbookingData" class="bookaction.Rentbookingtableaction">
+<result name="viewRentbookingData">reportRentbooking.jsp</result>
+</action>
+
+<action name="rentcustomerform" method="insertrentcustomerdata2" class="bookaction.Rentcustomertableaction">
+<result name="insert">success.jsp</result>
+<result name="input">Rentcustomertable.jsp</result>
+</action>
+
+<action name="viewRentcustomerreportAction" method="viewRentcustomerData" class="bookaction.Rentcustomertableaction">
+<result name="viewRentcustomerData">reportRentcustomer.jsp</result>
+</action>
+
+<action name="searchadmin" method="AdminSearch2" class="bookaction.Admintableaction">
+<result name="search">AdminSearch.jsp</result>
+</action>
+    
+
+<action name="updateadminsearch" method="AdminSearch2" class="bookaction.Admintableaction">
+<result name="search">AdminUpdate.jsp</result>
+</action>
+    
+    <action name="updateadminsearchaction" method="updatedata2" class="bookaction.Admintableaction">
+<result name="update">Update.jsp</result>
+</action>
+
+<action name="deletesearchadmin" method="AdminSearch2" class="bookaction.Admintableaction">
+<result name="search">AdminDelete.jsp</result>
+</action>
+
+<action name="deleteadminaction" method="deletedata2" class="bookaction.Admintableaction">
+<result name="delete">success.jsp</result>
+</action>
+    
+
+<action name="searchBookbuysell" method="searchbookbuysell2" class="bookaction.Bookbuysellaction">
+<result name="search">BookbuysellSearch.jsp</result>
+</action>
+
+
+    <action name="searchbookbuy" method="BookBuysearch2" class="bookaction.BookBuytableaction">
+    <result name="search">BookBuytableSearch.jsp</result>
+</action>
+
+<action name="searchbooktable" method="bookdatasearch2" class="bookaction.Booktableaction">
+<result name="search">BooktableSearch.jsp</result>
+</action>
+
+<action name="searchbookname" method="booknamesearch2" class="bookaction.Booktableaction">
+<result name="searchbname">Booktablenamesearch.jsp</result>
+</action>
+
+<action name="searchcustomer" method="customerdatasearch2" class="bookaction.Customertableaction">
+<result name="search">CustomertableSearch.jsp</result>    
+    </action>
+
+<action name="searchfeedback" method="Feedbackdatasearch2" class="bookaction.Feedbacktableaction">
+<result name="search">FeedbacktableSearch.jsp</result>
+</action>
+
+<action name="searchpayment" method="Paymentdatasearch2" class="bookaction.Paymenttableaction">
+<result name="search">PaymenttableSearch.jsp</result>
+</action>
+
+
+<action name="searchrentbooking" method="Rentbookingdatasearch2" class="bookaction.Rentbookingtableaction">
+<result name="search">RentbookingtableSearch.jsp</result>
+    </action>
+
+<action name="searchrentcustomer" method="Rentcustomerdatasearch2" class="bookaction.Rentcustomertableaction">
+<result name="search">RentcustomertableSearch.jsp</result>
+</action>
+
+<action name="updateBookBuySellsearch" method="searchbookbuysell2" class="bookaction.Bookbuysellaction">
+<result name="search">BookbuysellUpdate.jsp</result>
+</action>
+
+
+<action name="updateBookBuySell" method="updatebookbuysell2" class="bookaction.Bookbuysellaction">
+<result name="update">success.jsp</result>
+</action>
+
+<action name="deleteBookBuySellsearch" method="searchbookbuysell2" class="bookaction.Bookbuysellaction">
+<result name="search">BookbuysellDelete.jsp</result>
+</action>
+
+<action name="deleteBookBuySellaction" method="deletebookbuysell2" class="bookaction.Bookbuysellaction">
+<result name="delete">success.jsp</result>
+</action>
+
+<action name="updatebookbuysearch" method="BookBuysearch2" class="bookaction.BookBuytableaction">
+<result name="search">BookBuytableUpdate.jsp</result>
+</action>
+
+
+  <action name="updatebookbuysearchaction" method="updatebookbuytable2" class="bookaction.BookBuytableaction">
+    <result name="update">success.jsp</result>
+</action>  
+
+<action name="deleteBookBuysearch" method="BookBuysearch2" class="bookaction.BookBuytableaction">
+<result name="search">BookBuytableDelete.jsp</result>
+</action>
+
+<action name="deleteBookBuyaction" method="deletebookbuytable2" class="bookaction.BookBuytableaction">
+<result name="delete">success.jsp</result>
+</action>
+
+<action name="updateBooksearch" method="bookdatasearch2" class="bookaction.Booktableaction">
+<result name="search">BooktableUpdate.jsp</result>
+</action>
+
+
+  <action name="updatebookaction" method="updatebooktable2" class="bookaction.Booktableaction">
+    <result name="update">success.jsp</result>
+</action>  
+
+
+<action name="deleteBooksearch" method="bookdatasearch2" class="bookaction.Booktableaction">
+<result name="search">BooktableDelete.jsp</result>
+</action>
+
+
+  <action name="deleteBookaction" method="deletebooktable2" class="bookaction.Booktableaction">
+    <result name="delete">success.jsp</result>
+</action>  
+
+
+<action name="updateCustomersearch" method="customerdatasearch2" class="bookaction.Customertableaction">
+<result name="search">CustomertableUpdate.jsp</result>
+</action>
+
+<!-- My Profile -->
+<action name="UpdatecustSearchActions" method="customerdatasearch2" class="bookaction.Customertableaction">
+<result name="search">Myprofile.jsp</result>
+</action>
+<!-- end -->
+
+  <action name="updateCustomeraction2" method="updatecustomertable2" class="bookaction.Customertableaction">
+    <result name="update">success.jsp</result>
+</action>  
+
+<action name="deleteCustomersearch" method="customerdatasearch2" class="bookaction.Customertableaction">
+<result name="search">CustomertableDelete.jsp</result>
+</action>
+
+
+  <action name="deleteCustomeraction" method="deletecustomertable2" class="bookaction.Customertableaction">
+    <result name="delete">success.jsp</result>
+</action>  
+
+<action name="updateFeedbacksearch" method="Feedbackdatasearch2" class="bookaction.Feedbacktableaction">
+<result name="search">FeedbacktableUpdate.jsp</result>
+</action>
+
+
+  <action name="updateFeedbackaction" method="updateFeedbacktable2" class="bookaction.Feedbacktableaction">
+    <result name="update">success.jsp</result>
+</action>  
+
+<action name="deleteFeedbacksearch" method="Feedbackdatasearch2" class="bookaction.Feedbacktableaction">
+<result name="search">FeedbacktableDelete.jsp</result>
+</action>
+
+
+  <action name="deleteFeedbackaction" method="deleteFeedbacktable2" class="bookaction.Feedbacktableaction">
+    <result name="delete">success.jsp</result>
+</action>  
+
+
+
+
+
+
+<action name="updatePaymentsearch" method="Paymentdatasearch2" class="bookaction.Paymenttableaction">
+<result name="search">PaymenttableUpdate.jsp</result>
+</action>
+
+
+  <action name="updatePaymentaction" method="updatePaymenttable2" class="bookaction.Paymenttableaction">
+    <result name="update">success.jsp</result>
+</action>  
+
+<action name="deletePaymentsearch" method="Paymentdatasearch2" class="bookaction.Paymenttableaction">
+<result name="search">PaymenttableDelete.jsp</result>
+</action>
+
+
+  <action name="deletePaymentaction" method="deletePaymenttable2" class="bookaction.Paymenttableaction">
+    <result name="delete">success.jsp</result>
+</action>  
+
+
+
+
+
+<!-- Rent Booking Mapping -->
+
+<action name="updateRentBookingsearch" method="Rentbookingdatasearch2" class="bookaction.Rentbookingtableaction">
+<result name="search">RentbookingtableUpdate.jsp</result>
+</action>
+
+
+  <action name="updateRentBookingaction" method="updateRentBookingtable2" class="bookaction.Rentbookingtableaction">
+    <result name="update">success.jsp</result>
+</action>  
+
+<action name="deleteRentbookingsearch" method="Rentbookingdatasearch2" class="bookaction.Rentbookingtableaction">
+<result name="search">RentbookingtableDelete.jsp</result>
+</action>
+
+
+  <action name="deleteRentbookingaction" method="deleteRentBookingtable2" class="bookaction.Rentbookingtableaction">
+    <result name="delete">success.jsp</result>
+</action>  
+
+
+<!-- Rent Customer table mapping  -->
+
+<action name="updateRentcustomersearch" method="Rentcustomerdatasearch2" class="bookaction.Rentcustomertableaction">
+<result name="search">RentcustomertableUpdate.jsp</result>
+</action>
+
+
+  <action name="updateRentcustomeraction" method="updateRentCustomertable2" class="bookaction.Rentcustomertableaction">
+    <result name="update">success.jsp</result>
+</action>  
+
+<action name="deleteRentcustomersearch" method="Rentcustomerdatasearch2" class="bookaction.Rentcustomertableaction">
+<result name="search">RentcustomertableDelete.jsp</result>
+</action>
+
+
+  <action name="deleteRentcustomeraction" method="deleteRentCustomertable2" class="bookaction.Rentcustomertableaction">
+    <result name="delete">success.jsp</result>
+</action>  
+<action name="viewrentpaymentaction" method="calculateTotalRent" class="bookaction.Rentbookingtableaction">
+    <result name="viewRentpagesuccess">RentPaymenttable.jsp</result>
+</action> 
+
+<action name="rentaction" method="insertrentpaymentdata2" class="bookaction.Paymenttableaction">
+    <result name="insert" type="chain">rentbookingconfirmation</result>
+</action> 
+
+<action name="rentbookingconfirmation" method="insertrentbookingdata2" class="bookaction.Rentbookingtableaction">
+    <result name="insert">confirmrent.jsp</result>
+</action> 
+
+
+ <action name="viewmyorderAction" method="searchOrderbycustomeridData" class="bookaction.BookBuytableaction">
+    <result name="SuccessSearch" >myorder.jsp</result>
+    <result name="failsearch">failsearch.jsp</result>
+    </action>
+  <action name="viewOrderAction" method="BookBuysearch2" class="bookaction.BookBuytableaction">
+    <result name="search">vieworderdetail.jsp</result>
+</action>
+    </package>
+    </struts>

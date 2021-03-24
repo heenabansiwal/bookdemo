@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+ <hibernate-mapping>
+ <class name="bookpojo.Rentbookingtablepojo" table="rentbookingtable">
+   		<id name="rentbookingid" type="int" >
+   		<column name="rentbookingid"/>
+		<generator class="identity"></generator>
+   	</id>
+   	
+   		<property name="customerid"  type="int">
+   	<column name="customerid" length="30" not-null="false"></column>
+    </property>
+    
+    	<property name="rentstartdate"  type="date">
+   	<column name="rentstartdate" length="30" not-null="false"></column>
+    </property>
+    
+    	<property name="rentedndate"  type="string">
+   	<column name="rentedndate" length="30" not-null="false"></column>
+    </property>
+    
+    	<property name="rentcost"  type="double">
+   	<column name="rentcost" length="30" not-null="false"></column>
+    </property>
+    
+    
+    	<property name="rentstatus"  type="string">
+   	<column name="rentstatus" length="30" not-null="false"></column>
+    </property>
+    
+    
+    
+    <property name="rentpid"  type="int">
+   	<column name="rentpid" length="30" not-null="false"></column>
+    </property>
+    
+<set name="rentbooks" cascade="save-update" table="orderrentbooks"> 
+   	<key column="orderrentbookno"></key>
+   	<many-to-many column="bookid" class="bookpojo.Booktablepojo"></many-to-many>
+   	</set>
+    	
+ </class>
+ </hibernate-mapping>

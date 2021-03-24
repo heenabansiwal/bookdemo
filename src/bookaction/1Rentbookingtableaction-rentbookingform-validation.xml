@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE validators PUBLIC
+  		"-//Apache Struts//XWork Validator 1.0.3//EN"
+  		"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+  		
+  		<validators>
+ 	 	<validator type="required">
+ 	 	<param name="fieldname">customerid</param>
+  		<message>Customer Id Is Required</message>
+  		</validator>
+
+        <validator type="requiredstring">
+ 	 	<param name="fieldname">rentstartdate</param>
+  		<message>RentStartDate Is Required</message>
+  		</validator>
+  		
+  		<validator type="requiredstring">
+ 	 	<param name="fieldname">rentedndate</param>
+  		<message>RentEndDate Is Required</message>
+  		</validator>
+  		
+
+        <validator type="required">
+ 	 	<param name="fieldname">rentcost</param>
+  		<message>Rent Cost Is Required</message>
+  		</validator>
+  		
+  		<validator type="requiredstring">
+ 	 	<param name="fieldname">rentstatus</param>
+  		<message>Rent Status Is Required</message>
+  		</validator>
+  		
+  		</validators>

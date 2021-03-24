@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ 
+ <hibernate-mapping>
+ 
+ <class name="bookpojo.Booktablepojo" table="Booktable">
+ <id name="bookid" type="int">
+ <column name="bookid"></column>
+ <generator class="identity"></generator>
+ </id>
+ 
+ <property name="bookisbn" type="string">
+ <column name="bookisbn" length="30" not-null="true"></column>
+ </property>
+ 
+ <property name="title" type="string">
+ <column name="title" length="30" not-null="true"></column>
+ </property>
+ 
+ <property name="category" type="string">
+ <column name="category" length="30" not-null="true"></column>
+ </property>
+ 
+ <property name="cost" type="double">
+ <column name="cost" length="30" not-null="true"></column>
+ </property>
+ 
+ <property name="description" type="string">
+ <column name="description" length="30" not-null="true"></column>
+ </property>
+ 
+ <property name="publishername" type="string">
+ <column name="publishername" length="30" not-null="true"></column>
+ </property>
+ 
+ <property name="coverpage" type="string">
+ <column name="coverpage" length="30" not-null="true"></column>
+ </property>
+
+<property name="data"  type="binary">
+<column name="data" length="100000" not-null="true"></column>
+</property>
+ 
+ 
+ </class>
+ 
+ 
+ </hibernate-mapping>

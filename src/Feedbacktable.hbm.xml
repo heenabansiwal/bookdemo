@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ 
+ <hibernate-mapping>
+ <class name="bookpojo.Feedbacktablepojo" table="Feedbacktable" >
+ <id name="feedid" type="int" >
+   		<column name="feedid"/>
+		<generator class="identity"></generator>
+   	</id>
+    	<property name="feedsend"  type="string">
+   	<column name="feedsend" length="30" not-null="true"></column>
+    </property>
+ 
+    	<property name="feedrseponse"  type="string">
+   	<column name="feedrseponse" length="30" not-null="true"></column>
+    </property>
+ 
+    	<property name="feeddescription"  type="string">
+   	<column name="feeddescription" length="30" not-null="true"></column>
+    </property>
+ 
+ 
+ </class>
+ 
+ 
+ </hibernate-mapping>

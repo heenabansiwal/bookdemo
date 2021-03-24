@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  
+    xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+               http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">  
+  
+
+
+<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"  destroy-method="close">  
+        <property name="driverClassName"  value="com.mysql.jdbc.Driver"></property>  
+        <property name="url" value="jdbc:mysql://localhost:3306/onlinebooks"></property>  
+        <property name="username" value="root"></property>  
+        <property name="password" value="root"></property>  
+      
+ </bean>  
+   
+  
+    <bean id="mysessionFactory"  class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">  
+        <property name="dataSource" ref="dataSource"> </property>  
+          
+         <property name="mappingResources">  
+           <list>  
+			   <value>Admintable.hbm.xml</value> 
+<value>Bookbuysell.hbm.xml</value>			       
+	<value>BookBuytable.hbm.xml</value>		   		   
+		<value>Booktable.hbm.xml</value>				   
+<value>Customertable.hbm.xml</value>
+<value>Feedbacktable.hbm.xml</value>
+<value>Paymenttable.hbm.xml</value>
+<value>Rentbookingtable.hbm.xml</value>
+<value>Rentcustomertable.hbm.xml</value>
+	   </list>  
+        </property>  
+        
+         
+          
+        <property name="hibernateProperties">  
+            <props>  
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="hibernate.default_catalog">onlinebooks</prop>
+                
+                 
+                <prop key="hibernate.hbm2ddl.auto">update</prop>  
+                <prop key="hibernate.show_sql">true</prop>  
+                <prop key="hibernate.format_sql">true</prop>
+                <prop key="hibernate.connection.release_mode">after_statement</prop>
+                               
+                <prop key="hibernate.c3p0.minPoolSize">5</prop>
+				<prop key="hibernate.c3p0.maxPoolSize">500</prop>
+				<prop key="hibernate.c3p0.timeout">25200</prop>
+				<prop key="hibernate.c3p0.max_statement">500</prop>
+				<prop key="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</prop>
+                
+				
+            </props>  
+        </property>  
+    </bean> 
+	<bean id="adio" class="bookdio.Admintabledio">
+	<property name="sessionFactory" ref="mysessionFactory"></property>
+	</bean>
+
+	<bean id="bdio" class="bookdio.Bookbuyselldio">
+	<property name="sessionFactory" ref="mysessionFactory"></property>
+	</bean>
+
+    <bean id="bbdio" class="bookdio.BookBuytabledio">
+	<property name="sessionFactory" ref="mysessionFactory"></property>
+	</bean>
+	
+	<bean id="btdio" class="bookdio.Booktabledio">
+	<property name="sessionFactory" ref="mysessionFactory"></property>
+	</bean>
+
+	<bean id="ctdio" class="bookdio.Customertabledio">
+	<property name="sessionFactory" ref="mysessionFactory"></property>
+	</bean>
+    
+    <bean id="fdio" class="bookdio.Feedbacktabledio">
+    <property name="sessionFactory" ref="mysessionFactory"></property>
+    </bean>
+    
+    <bean id="pdio" class="bookdio.Paymenttabledio">
+ <property name="sessionFactory" ref="mysessionFactory"></property>   
+    </bean>
+	
+	<bean id="rbdio" class="bookdio.Rentbookingtabledio">
+	<property name="sessionFactory" ref="mysessionFactory"></property>
+	</bean>
+	
+	<bean id="rcdio" class="bookdio.Rentcustomertabledio">
+	<property name="sessionFactory" ref="mysessionFactory"></property>
+	</bean>
+	
+    </beans>
+
+
+
+
+
+

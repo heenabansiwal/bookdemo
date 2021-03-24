@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping>
+<class name="bookpojo.BookBuytablepojo" table="Bookbuytable">
+<id name="orderno" type="int">
+<column name="orderno"></column>
+<generator class="identity"></generator>
+</id>
+
+<property name="customerid" type="int">
+<column name="customerid" length="30" not-null="true"></column>
+</property>
+
+<property name="paymentid" type="int">
+<column name="paymentid" length="30" not-null="true"></column>
+</property>
+
+<property name="orderdate" type="date">
+<column name="orderdate" length="30" not-null="true"></column>
+</property>
+
+
+<property name="deliveryaddress" type="string">
+<column name="deliveryaddress" length="30" not-null="false"></column>
+</property>
+
+
+<property name="deliverytime" type="string">
+<column name="deliverytime" length="30" not-null="false"></column>
+</property>
+
+<property name="phno" type="long">
+<column name="phno" length="30" not-null="true"></column>
+</property>
+
+
+<property name="orderamount" type="double">
+<column name="orderamount" length="30" not-null="true"></column>
+</property>
+
+
+<set name="books" cascade="save-update" table="orderbooks"> 
+   	<key column="orderbookno"></key>
+   	<many-to-many column="bookid" class="bookpojo.Booktablepojo"></many-to-many>
+   	</set>
+
+
+</class>
+
+
+
+</hibernate-mapping>

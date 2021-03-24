@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ 
+ <hibernate-mapping>
+ 
+ <class name="bookpojo.Paymenttablepojo" table="Paymenttable">
+   		<id name="paymentid" type="int" >
+   		<column name="paymentid"/>
+		<generator class="identity"></generator>
+   	</id>
+   	
+   	<property name="customerid"  type="int">
+   	<column name="customerid" length="30" not-null="true"></column>
+    </property>
+    
+    
+    <property name="paydate"  type="date">
+   	<column name="paydate" length="30" not-null="true"></column>
+    </property>
+    
+    <property name="payAmt"  type="double">
+   	<column name="payAmt" length="30" not-null="true"></column>
+    </property>
+    
+    <property name="paymode"  type="string">
+   	<column name="paymode" length="30" not-null="true"></column>
+    </property>
+    
+
+    
+    
+   	
+ </class>
+ </hibernate-mapping>

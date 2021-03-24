@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	
+	
+	<class name="bookpojo.Bookbuysellpojo" table="Bookbuysell" >
+   		<id name="bookbuyid" type="int">
+   		<column name="bookbuyid"/>
+ 	<generator class="identity"></generator>
+   	</id>
+   	
+   
+   	<property name="orderno"  type="int">
+   	<column name="orderno" length="30" not-null="true"></column>
+   	</property>
+   	<property name="bookisbn" type="string">
+   	<column name="bookisbn" length="30" not-null="true"></column>
+   	</property>
+   	<property name="status"  type="string">
+   	<column name="status" length="30" not-null="true"></column>
+   	</property>
+   	
+   
+   	</class> 
+</hibernate-mapping>
